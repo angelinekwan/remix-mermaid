@@ -1,8 +1,11 @@
 import { Mermaid } from "~/components/mermaid";
+import { ClientOnly } from "remix-utils";
 
 export default function Index() {
   return (
     <>
+		<ClientOnly>{() =>
+		<>
     <p>Mermaid hardcoded 1</p>
 			<Mermaid children={`
 				graph TD;
@@ -32,6 +35,8 @@ export default function Index() {
 				  John-->>Alice: Great!
 				  Alice-)John: See you later!		
 			`} />
+			</>
+			}</ClientOnly>
     </>
   );
 }
